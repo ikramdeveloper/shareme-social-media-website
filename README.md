@@ -1,6 +1,6 @@
 # Shareme Full Stack Social Media App
 
-Full stack social media app using React, Tailwind and sanity.io
+Full stack social media app using React, Tailwind CSS and sanity.io
 
 ## ![FullStack Social Media App](https://i.ibb.co/8cLfj3X/image.png)
 
