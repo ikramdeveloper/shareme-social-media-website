@@ -11,8 +11,12 @@ const Login = () => {
   const handleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-        localStorage.setItem("user", JSON.stringify(result.user));
-        const { displayName, photoURL, uid } = result.user;
+        const { displayName, email, photoURL, uid, stsTokenManager } =
+          result.user;
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ displayName, email, photoURL, uid, stsTokenManager })
+        );
         const doc = {
           _id: uid,
           _type: "user",

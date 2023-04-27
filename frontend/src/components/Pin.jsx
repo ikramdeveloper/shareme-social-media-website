@@ -5,18 +5,20 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 
+import { useAppContext } from "../contexts/AppContext";
 import { urlFor, client } from "../client";
 import { fetchUser } from "../utils/fetchUser";
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const [isPostHovered, setIsPostHovered] = useState(false);
   const [savedPost, setSavedPost] = useState(false);
+  const { setPins } = useAppContext();
 
   const navigate = useNavigate();
   const user = fetchUser();
 
   const isAlreadySaved = save?.filter(
-    (item) => item.postedBy._id === user.uid
+    (item) => item.postedBy?._id === user.uid
   )?.length;
 
   const savePin = (id) => {
@@ -43,7 +45,9 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const deletePin = (id) => {
     client
       .delete(id)
-      .then(() => window.location.reload())
+      .then(() => {
+        setPins((pre) => pre.filter((item) => item._id !== id));
+      })
       .catch((err) => console.log(err));
   };
 

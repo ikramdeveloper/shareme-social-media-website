@@ -73,6 +73,17 @@ const Sidebar = ({ user, closeToggle }) => {
           <IoIosArrowForward />
         </Link>
       )}
+
+      <article className="mx-3 mt-1 mb-5 p-2 bg-white rounded-lg shadow-lg">
+        <p>For support:</p>
+        <a
+          href="mailto:m.ikramch22@gmail.com"
+          target="_blank"
+          className="text-sm"
+        >
+          m.ikramch22@gmail.com
+        </a>
+      </article>
     </aside>
   );
 };
