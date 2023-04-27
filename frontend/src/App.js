@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
+import { AppProvider } from "./contexts/AppContext";
 import Home from "./containers/Home";
 import { Login, ProtectedRoute } from "./components";
 import { fetchUser } from "./utils/fetchUser";
@@ -16,17 +17,19 @@ const App = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route
-        path="/*"
-        element={
-          <ProtectedRoute user={user}>
-            <Home />
-          </ProtectedRoute>
-        }
-      />
-    </Routes>
+    <AppProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute user={user}>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </AppProvider>
   );
 };
 

@@ -5,10 +5,11 @@ import { client } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 import { feedQuery, searchQuery } from "../utils/data";
+import { useAppContext } from "../contexts/AppContext";
 
 const Feed = () => {
+  const { pins, setPins } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
-  const [pins, setPins] = useState(null);
   const { categoryId } = useParams();
 
   useEffect(() => {

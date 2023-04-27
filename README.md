@@ -4,6 +4,10 @@ Full stack social media app using React, Tailwind CSS and sanity.io
 
 ## ![FullStack Social Media App](https://i.ibb.co/8cLfj3X/image.png)
 
+## Setup Sanity Project
+
+Here is a complete guidance on how to setup sanity backend: [Open](https://www.sanity.io/docs/create-a-sanity-project)
+
 ### Author Links
 
 👋 Hello, I'm Ikram Ul Haq - Web Developer & Programmer

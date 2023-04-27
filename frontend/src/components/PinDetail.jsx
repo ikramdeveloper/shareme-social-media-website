@@ -34,7 +34,7 @@ const PinDetail = ({ user }) => {
 
   useEffect(() => {
     fetchPinDetails();
-  }, [pinId, pinDetail?.comments]);
+  }, [pinId]);
 
   const addComment = () => {
     if (comment) {
@@ -51,11 +51,12 @@ const PinDetail = ({ user }) => {
           },
         ])
         .commit()
-        .then(() => {
+        .then((result) => {
+          setPinDetail((pre) => ({ ...result, postedBy: pre.postedBy }));
           setComment("");
           setTimeout(() => {
             fetchPinDetails();
-          }, 2000);
+          }, 1000);
         })
         .catch((err) => console.log(err))
         .finally(() => setIsAddingComment(false));
@@ -108,15 +109,15 @@ const PinDetail = ({ user }) => {
             </section>
 
             <Link
-              to={`/user-profile/${pinDetail?.postedBy._id}`}
+              to={`/user-profile/${pinDetail?.postedBy?._id}`}
               className="flex gap-2 mt-5 items-center bg-white rounded-lg"
             >
               <img
-                src={pinDetail?.postedBy.image}
+                src={pinDetail?.postedBy?.image}
                 alt="user"
                 className="w-10 h-10 rounded-full"
               />
-              <p className="font-bold">{pinDetail?.postedBy.username}</p>
+              <p className="font-bold">{pinDetail?.postedBy?.username}</p>
             </Link>
 
             <h2 className="mt-5 text-2xl">Comments</h2>

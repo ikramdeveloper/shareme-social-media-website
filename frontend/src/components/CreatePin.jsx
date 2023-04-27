@@ -50,12 +50,12 @@ const CreatePin = ({ user }) => {
   const savePin = (e) => {
     e.preventDefault();
 
-    if (title && about && destination && imageAsset._id && category) {
+    if (title && about && imageAsset._id && category) {
       const doc = {
         _type: "pin",
         title,
         about,
-        destination,
+        ...(destination && { destination }),
         image: {
           _type: "image",
           asset: {
@@ -151,6 +151,7 @@ const CreatePin = ({ user }) => {
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add your title"
             className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
+            required
           />
 
           {user && (
@@ -170,15 +171,16 @@ const CreatePin = ({ user }) => {
             onChange={(e) => setAbout(e.target.value)}
             placeholder="Tell everyone what your Pin is about"
             className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            required
           />
 
-          <input
+          {/* <input
             type="url"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
             className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
-          />
+          /> */}
 
           <section className="flex flex-col">
             <article>
