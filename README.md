@@ -2,7 +2,8 @@
 
 Full stack social media app using React, Tailwind CSS and sanity.io
 
-## ![FullStack Social Media App](https://i.ibb.co/8cLfj3X/image.png)
+![social-media-app](https://github.com/user-attachments/assets/fa60f140-fc48-481d-a4a4-d55e8ce34840)
+
 
 ## Setup Sanity Project
 
